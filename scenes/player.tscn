@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://sxbyhvxn5fpb"]
+
+[ext_resource type="Script" uid="uid://blu6aoq3dmxea" path="res://scenes/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://j4y3qo34jd87" path="res://graphics/Free Chicken Sprites.png" id="2_g2els"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
+atlas = ExtResource("2_g2els")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("2_g2els")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("2_g2els")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_g2els")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuyoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2els")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=766471504]
+script = ExtResource("1_3vyb7")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=485526406]
+offset = Vector2(0, -50)
+zoom = Vector2(6, 6)
+limit_left = -190
+limit_top = -300
+limit_right = 190
+limit_bottom = 400
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=693745134]
+polygon = PackedVector2Array(4, -2, -4, -2, -6, 1, -6, 4, 2, 4, 4, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1055285631]
+sprite_frames = SubResource("SpriteFrames_tuyoq")
+animation = &"right"
+autoplay = "right"
+frame = 2
+frame_progress = 0.7077756
