@@ -4,9 +4,16 @@ var car_scene: PackedScene = preload("res://scenes/car.tscn")
 var train_scene: PackedScene = preload("res://scenes/train.tscn")
 var truck_scene: PackedScene = preload("res://scenes/truck.tscn")
 
-func _on_finish_area_2d_body_entered(_body: Node2D) -> void:
-	print('Has entered')
+var score : int = 1000
+var time : int 
 
+func _on_finish_area_2d_body_entered(_body: Node2D) -> void:
+	call_deferred("change_scene")
+	if score > Global.score:
+		Global.score = score
+	
+func change_scene():
+	get_tree().change_scene_to_file("res://scenes/Title.tscn")
 
 func _on_car_timer_timeout() -> void:
 	var car = car_scene.instantiate() as Area2D
@@ -33,4 +40,10 @@ func _on_truck_timer_timeout() -> void:
 	truck.connect("body_entered", go_to_title)
 
 func go_to_title(_body):
-	print('Collision')
+	call_deferred("change_scene")
+
+
+func _on_score_timer_timeout() -> void:
+	score = score - 5
+	time = time + 1
+	$CanvasLayer/Label.text = 'Time Elapsed: ' + str(time)

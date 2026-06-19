@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bjbr6ll10q2kt"]
+
+[ext_resource type="Script" uid="uid://c8rn6cgce37fk" path="res://scenes/global.gd" id="1_4pk28"]
+[ext_resource type="AudioStream" uid="uid://d0dxmckruhk18" path="res://audio/bgm.mp3" id="2_nmxvb"]
+
+[node name="Global" type="Node" unique_id=940032297]
+script = ExtResource("1_4pk28")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2057528989]
+stream = ExtResource("2_nmxvb")
+volume_db = 1.0
+autoplay = true
+parameters/looping = true

@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://b534htl828p81" path="res://graphics/objects/bin.png" id="16_ssvqc"]
 [ext_resource type="Texture2D" uid="uid://c3lnodrfey6qx" path="res://graphics/objects/box1.png" id="17_264po"]
 [ext_resource type="Texture2D" uid="uid://b0i41wfo5na01" path="res://graphics/objects/barrier.png" id="18_ssvqc"]
+[ext_resource type="FontFile" uid="uid://bdk7ac8jmlqo0" path="res://fonts/Better VCR 9.0.1.ttf" id="20_1kice"]
+[ext_resource type="AudioStream" uid="uid://c4s2sysgvpqj1" path="res://audio/cluck.ogg" id="21_5newe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uwrxv"]
 texture = ExtResource("2_lnu2h")
@@ -569,6 +571,22 @@ size = Vector2(12, 7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5newe"]
 size = Vector2(16, 6)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kice"]
+bg_color = Color(0.008323986, 0.121588044, 0.050072983, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.051753886, 0.05900193, 0.019347418, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
 [node name="Level1" type="Node2D" unique_id=1242329644]
 script = ExtResource("1_0tnpc")
 
@@ -640,6 +658,9 @@ autostart = true
 
 [node name="TruckTimer" type="Timer" parent="Timer" unique_id=635071759]
 wait_time = 0.75
+autostart = true
+
+[node name="ScoreTimer" type="Timer" parent="Timer" unique_id=488326115]
 autostart = true
 
 [node name="Objects" type="Node2D" parent="." unique_id=2058973594]
@@ -1609,7 +1630,32 @@ position = Vector2(-199, -168)
 [node name="Marker2D11" type="Marker2D" parent="StartPositions/TrainStartPositions" unique_id=2013512108]
 position = Vector2(-198, -280)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=520124088]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1618590577]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -127.5
+offset_top = 30.0
+offset_right = 127.5
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("20_1kice")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_1kice")
+text = "...Cross the Road..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=247009046]
+stream = ExtResource("21_5newe")
+volume_db = 0.5
+autoplay = true
+parameters/looping = true
+
 [connection signal="body_entered" from="Borders/FinishArea2D" to="." method="_on_finish_area_2d_body_entered"]
 [connection signal="timeout" from="Timer/CarTimer" to="." method="_on_car_timer_timeout"]
 [connection signal="timeout" from="Timer/TrainTimer" to="." method="_on_train_timer_timeout"]
 [connection signal="timeout" from="Timer/TruckTimer" to="." method="_on_truck_timer_timeout"]
+[connection signal="timeout" from="Timer/ScoreTimer" to="." method="_on_score_timer_timeout"]

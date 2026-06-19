@@ -8,9 +8,6 @@ func _physics_process(delta: float) -> void:
 	animation()
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("confirm"):
-		print('something pressed')
-		
 func animation():
 		if direction:
 			$AnimatedSprite2D.flip_h = direction.x < 0

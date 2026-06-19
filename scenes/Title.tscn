@@ -1,5 +1,11 @@
 [gd_scene format=3 uid="uid://dvaupsc7c2mjj"]
 
+[ext_resource type="Script" uid="uid://b2dqh3mc8fd6d" path="res://scenes/title.gd" id="1_aa56r"]
+[ext_resource type="FontFile" uid="uid://bkjue62252s1f" path="res://fonts/8-BIT WONDER.TTF" id="1_ascc0"]
+[ext_resource type="Texture2D" uid="uid://bun641y42yoyh" path="res://graphics/chicken.png" id="2_lq0lj"]
+[ext_resource type="FontFile" uid="uid://thwppemvpcfs" path="res://fonts/BrownieStencil-8O8MJ.ttf" id="3_2sdm5"]
+[ext_resource type="FontFile" uid="uid://bdk7ac8jmlqo0" path="res://fonts/Better VCR 9.0.1.ttf" id="4_iyajp"]
+
 [node name="Control" type="Control" unique_id=278292056]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_aa56r")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1836193239]
 layout_mode = 1
@@ -16,3 +23,73 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.63892275, 0.058206968, 0.23142886, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1885834725]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -522.5
+offset_top = -96.0
+offset_right = 522.5
+offset_bottom = -400.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_ascc0")
+theme_override_font_sizes/font_size = 140
+text = "Crossy 
+Road 2D"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1313051076]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -46.0
+offset_right = 122.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lq0lj")
+
+[node name="Label2" type="Label" parent="." unique_id=526521668]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -285.0
+offset_top = -310.0
+offset_right = 285.0
+offset_bottom = -204.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_2sdm5")
+theme_override_font_sizes/font_size = 75
+text = "High Score : 0"
+
+[node name="Label3" type="Label" parent="." unique_id=1461145822]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -381.0
+offset_top = -190.0
+offset_right = 381.0
+offset_bottom = -145.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_iyajp")
+theme_override_font_sizes/font_size = 35
+text = "Press 'Spacebar' to try again"
