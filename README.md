@@ -81,6 +81,7 @@ git clone https://github.com/uttiyapal/Crossy-Road-2D.git
 1. Open the project in Godot.
 2. Load the project folder.
 3. Run the `game` scene.
+4. or, you can simply download the .exe file from [here](https://mega.nz/file/8rlQ3CCK#QLYNMUikA-28sDNsrUjs_lHhNQQOjqmTVzXmK0tCraw), and run it.
 
 ---
 
