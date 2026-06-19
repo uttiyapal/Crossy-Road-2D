@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bmmhecjf6pwfn"]
+
+[ext_resource type="Texture2D" uid="uid://biuic6xpao2g7" path="res://graphics/cars/train.png" id="1_68jl8"]
+[ext_resource type="Script" uid="uid://rf7yfmst3fox" path="res://scenes/train.gd" id="1_d43s7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d43s7"]
+size = Vector2(86, 7)
+
+[node name="Train" type="Area2D" unique_id=487340321]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_d43s7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=248789610]
+texture = ExtResource("1_68jl8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1734475250]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_d43s7")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1824170309]
+rect = Rect2(-70, -119, 139, 237)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
