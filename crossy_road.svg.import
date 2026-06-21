@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0pu5b1mr5lhx"
-path="res://.godot/imported/pic2.png-57c8af6c8d5589593a08e4aef1617529.ctex"
+uid="uid://nkyqq0jgekd5"
+path="res://.godot/imported/crossy_road.svg-c8280937336b09d1a73f3b09edf0501b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/pic2.png"
-dest_files=["res://.godot/imported/pic2.png-57c8af6c8d5589593a08e4aef1617529.ctex"]
+source_file="res://crossy_road.svg"
+dest_files=["res://.godot/imported/crossy_road.svg-c8280937336b09d1a73f3b09edf0501b.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

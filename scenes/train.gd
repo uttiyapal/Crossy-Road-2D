@@ -1,7 +1,7 @@
 extends Area2D
 
 var direction = Vector2.LEFT
-var speed = 200
+var speed = 200 + ((Global.current_level-1)*100)
 
 func _ready() -> void:
 	if position.x < 0:

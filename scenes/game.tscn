@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://b0i41wfo5na01" path="res://graphics/objects/barrier.png" id="18_ssvqc"]
 [ext_resource type="FontFile" uid="uid://bdk7ac8jmlqo0" path="res://fonts/Better VCR 9.0.1.ttf" id="20_1kice"]
 [ext_resource type="AudioStream" uid="uid://c4s2sysgvpqj1" path="res://audio/cluck.ogg" id="21_5newe"]
+[ext_resource type="FontFile" uid="uid://bkjue62252s1f" path="res://fonts/8-BIT WONDER.TTF" id="21_37s47"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uwrxv"]
 texture = ExtResource("2_lnu2h")
@@ -571,21 +572,8 @@ size = Vector2(12, 7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5newe"]
 size = Vector2(16, 6)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kice"]
-bg_color = Color(0.008323986, 0.121588044, 0.050072983, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.051753886, 0.05900193, 0.019347418, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_left = 5.0
-expand_margin_top = 5.0
-expand_margin_right = 5.0
-expand_margin_bottom = 5.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bt5mj"]
+bg_color = Color(0.16565639, 0.16565642, 0.16565636, 1)
 
 [node name="Level1" type="Node2D" unique_id=1242329644]
 script = ExtResource("1_0tnpc")
@@ -1631,6 +1619,7 @@ position = Vector2(-199, -168)
 position = Vector2(-198, -280)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=520124088]
+process_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=1618590577]
 anchors_preset = -1
@@ -1641,12 +1630,63 @@ offset_top = 30.0
 offset_right = 127.5
 offset_bottom = 26.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("20_1kice")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_1kice")
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("21_37s47")
+theme_override_font_sizes/font_size = 32
 text = "...Cross the Road..."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PausePanel" type="Panel" parent="CanvasLayer" unique_id=60634899]
+process_mode = 3
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PausePanel" unique_id=765581684]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PausePanel/CenterContainer" unique_id=2074415371]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PausePanel/CenterContainer/MarginContainer" unique_id=1898256871]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/PausePanel/CenterContainer/MarginContainer/VBoxContainer" unique_id=1840090239]
+custom_minimum_size = Vector2(550, 90)
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("21_37s47")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_bt5mj")
+text = "GAME PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="CanvasLayer/PausePanel/CenterContainer/MarginContainer/VBoxContainer" unique_id=1034912649]
+process_mode = 3
+custom_minimum_size = Vector2(300, 65)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("20_1kice")
+theme_override_font_sizes/font_size = 20
+text = "Click to Resume"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=247009046]
 stream = ExtResource("21_5newe")
@@ -1659,3 +1699,4 @@ parameters/looping = true
 [connection signal="timeout" from="Timer/TrainTimer" to="." method="_on_train_timer_timeout"]
 [connection signal="timeout" from="Timer/TruckTimer" to="." method="_on_truck_timer_timeout"]
 [connection signal="timeout" from="Timer/ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/PausePanel/CenterContainer/MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
