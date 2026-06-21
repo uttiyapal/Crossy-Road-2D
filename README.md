@@ -52,6 +52,12 @@ This project recreates some of the core gameplay mechanics of Crossy Road in a 2
   <img src="img/pic2.png" alt="Gameplay Screenshot 2" width="30%">
   <img src="img/pic3.png" alt="Gameplay Screenshot 3" width="30%">
 </p>
+<p align="center">
+  <img src="img/pic4.png" alt="Gameplay Screenshot 1" width="30%">
+  <img src="img/pic5.png" alt="Gameplay Screenshot 2" width="30%">
+  <img src="img/pic6.png" alt="Gameplay Screenshot 3" width="30%">
+</p>
+
 
 <p align="center">
   <em>Gameplay, obstacle avoidance, and scoring mechanics.</em>
@@ -81,7 +87,7 @@ git clone https://github.com/uttiyapal/Crossy-Road-2D.git
 1. Open the project in Godot.
 2. Load the project folder.
 3. Run the `game` scene.
-4. or, you can simply download the .exe file from [here](https://mega.nz/file/8rlQ3CCK#QLYNMUikA-28sDNsrUjs_lHhNQQOjqmTVzXmK0tCraw), and run it.
+4. or, you can simply download the .exe file from [here](https://mega.nz/file/EzMCHDDY#_KgmWWtIjiEjnr2o9v0leVQkePsyaCHS_P67CE41CjY), and run it.
 
 ---
 
@@ -94,6 +100,12 @@ git clone https://github.com/uttiyapal/Crossy-Road-2D.git
 
 * Crossy Road 2D Sprites
   https://thdudk.itch.io/crossy-road-2d-sprites
+
+* RPG Tileset
+https://stealthix.itch.io/rpg-nature-tileset
+https://stealthix.itch.io/rpg-beach-tileset
+
+* https://pixabay.com/vectors/baby-yellow-chicken-chick-47808/
 
 ### Audio & Sound Effects
 
